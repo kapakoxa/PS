@@ -1,11 +1,11 @@
 ﻿Function Try-Module 
 { 
-Param([string]$Name) 
-if(-not(Get-Module -name $name)) 
+Param([string]$ModuleName) 
+if(-not(Get-Module -Name $ModuleName)) 
 { 
-    if(Get-Module -ListAvailable | Where-Object { $_.name -eq $name }) 
+    if(Get-Module -ListAvailable | Where-Object { $_.name -eq $ModuleName }) 
     { 
-        Import-Module -Name $name 
+        Import-Module -Name $ModuleName 
         $true 
     } 
     else { $false } 
